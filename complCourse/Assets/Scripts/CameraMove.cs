@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
-    public Transform Target;
+  public Transform Target;
 
-    private void Update() {
+  private void Update()
+  {
+
+    if (Target)
+    {
       transform.position = Target.position;
     }
+  }
 }
