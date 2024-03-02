@@ -35,4 +35,20 @@ public class CoinManager : MonoBehaviour
     CoinsText.text = "Coins Remain " + CoinsList.Count.ToString();
   }
 
+  public Coin GetClosest(Vector3 point){
+    float minDistance  = Mathf.Infinity;
+    Coin closestCoin = null;
+
+    for (int i = 0; i < CoinsList.Count; i++)
+    {
+      float distance = Vector3.Distance(point, CoinsList[i].transform.position);
+      if (distance < minDistance)
+      {
+        minDistance = distance;
+        closestCoin = CoinsList[i];
+      }
+    }
+    return closestCoin;
+  }
+
 }
