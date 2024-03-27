@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 2.5
-  JumpSpeed: 20
+  JumpSpeed: 14
   Friction: 0.6
   Grounded: 0
   MaxSpeed: 5
