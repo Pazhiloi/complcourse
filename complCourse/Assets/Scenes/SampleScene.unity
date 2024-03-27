@@ -637,6 +637,7 @@ GameObject:
   - component: {fileID: 1897572569}
   - component: {fileID: 1897572571}
   - component: {fileID: 1897572570}
+  - component: {fileID: 1897572572}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -673,9 +674,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 2.5
-  JumpSpeed: 8
+  JumpSpeed: 20
   Friction: 0.6
   Grounded: 0
+  MaxSpeed: 5
 --- !u!54 &1897572571
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -703,6 +705,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!75 &1897572572
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897572568}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -20, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &2142809074
 GameObject:
   m_ObjectHideFlags: 0

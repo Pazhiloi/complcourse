@@ -6,6 +6,8 @@ public class PlayerMove : MonoBehaviour
   public float JumpSpeed;
   public float Friction;
   public bool Grounded;
+
+  public float MaxSpeed;
   private Rigidbody rb;
 
   private void Start()
@@ -26,8 +28,26 @@ public class PlayerMove : MonoBehaviour
 
   private void FixedUpdate()
   {
-    rb.AddForce(Input.GetAxis("Horizontal") * MoveSpeed, 0, 0, ForceMode.VelocityChange);
-    rb.AddForce(-rb.velocity.x * Friction, 0, 0, ForceMode.VelocityChange);
+
+    float speedMultiplier = 1f;
+
+    if (Grounded == false)
+    {
+      speedMultiplier = 0.2f;
+    }
+    if (rb.velocity.x > MaxSpeed && Input.GetAxis("Horizontal") > 0)
+    {
+      speedMultiplier = 0;
+    }
+    if (rb.velocity.x < -MaxSpeed && Input.GetAxis("Horizontal") < 0)
+    {
+      speedMultiplier = 0;
+    }
+    rb.AddForce(Input.GetAxis("Horizontal") * MoveSpeed * speedMultiplier, 0, 0, ForceMode.VelocityChange);
+    if (Grounded)
+    {
+      rb.AddForce(-rb.velocity.x * Friction, 0, 0, ForceMode.VelocityChange);
+    }
   }
 
   private void OnCollisionStay(Collision other)
@@ -42,7 +62,7 @@ public class PlayerMove : MonoBehaviour
       }
     }
 
-    
+
   }
 
   private void OnCollisionExit(Collision other)
