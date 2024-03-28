@@ -725,6 +725,7 @@ MonoBehaviour:
   Friction: 0.6
   Grounded: 0
   MaxSpeed: 5
+  colliderTransform: {fileID: 510164738}
 --- !u!54 &1897572571
 Rigidbody:
   m_ObjectHideFlags: 0

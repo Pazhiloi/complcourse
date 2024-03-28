@@ -3,12 +3,13 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
   public float MoveSpeed;
-  public float JumpSpeed;
+  public float JumpSpeed; 
   public float Friction;
   public bool Grounded;
 
   public float MaxSpeed;
   private Rigidbody rb;
+  public Transform colliderTransform;
 
   private void Start()
   {
@@ -17,13 +18,8 @@ public class PlayerMove : MonoBehaviour
 
   private void Update()
   {
-    if (Input.GetKeyDown(KeyCode.Space))
-    {
-      if (Grounded)
-      {
-        rb.AddForce(0, JumpSpeed, 0, ForceMode.VelocityChange);
-      }
-    }
+    ScalePlayer();
+    HandleJump();
   }
 
   private void FixedUpdate()
@@ -61,8 +57,26 @@ public class PlayerMove : MonoBehaviour
         Grounded = true;
       }
     }
+  }
 
+  private void HandleJump(){
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+      if (Grounded)
+      {
+        rb.AddForce(0, JumpSpeed, 0, ForceMode.VelocityChange);
+      }
+    }
+  }
 
+  private void ScalePlayer(){
+    if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.S) || Grounded == false)
+    {
+      colliderTransform.localScale  = Vector3.Lerp(colliderTransform.localScale, new Vector3(1f, 0.5f, 1f), Time.deltaTime * 15f);
+    }
+    else{
+      colliderTransform.localScale = Vector3.Lerp(colliderTransform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * 15f);
+    }
   }
 
   private void OnCollisionExit(Collision other)
