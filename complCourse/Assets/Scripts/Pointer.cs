@@ -7,6 +7,7 @@ public class Pointer : MonoBehaviour
 
   float distance;
   Vector3 point;
+  Vector3 toAim;
   private Ray ray;
   private Plane plane;
 
@@ -21,5 +22,8 @@ public class Pointer : MonoBehaviour
     point = ray.GetPoint(distance);
 
     Aim.position = point;
+
+    toAim = Aim.position - transform.position;
+    transform.rotation = Quaternion.LookRotation(toAim);
   }
 }
