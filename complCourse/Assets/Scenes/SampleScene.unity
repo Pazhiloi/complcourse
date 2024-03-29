@@ -1468,6 +1468,7 @@ GameObject:
   - component: {fileID: 766405560}
   - component: {fileID: 766405561}
   - component: {fileID: 766405562}
+  - component: {fileID: 766405563}
   m_Layer: 0
   m_Name: Hen
   m_TagString: Untagged
@@ -1500,7 +1501,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766405556}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1599,6 +1600,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderers:
   - {fileID: 1542013365}
+--- !u!114 &766405563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766405556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cab141775795154c803636157683f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rigidbody: {fileID: 766405558}
+  Speed: 3
+  TimeToReachSpeed: 1
 --- !u!1 &885074523
 GameObject:
   m_ObjectHideFlags: 0
