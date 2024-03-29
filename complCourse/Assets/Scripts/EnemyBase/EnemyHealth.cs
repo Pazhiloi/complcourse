@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyHealth : MonoBehaviour
 {
   public int Health;
+
+  public UnityEvent EventOnTakeDamage;
 
   public void TakeDamage(int damageValue){
     Health -= damageValue;
@@ -10,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     {
       Die();
     }
+    EventOnTakeDamage.Invoke();
   }
 
   public void Die(){

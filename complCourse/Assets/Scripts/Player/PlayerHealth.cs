@@ -8,11 +8,8 @@ public class PlayerHealth : MonoBehaviour
 
   private bool _invulnerable = false;
 
-  // public AudioSource TakeDamageSound;
   public AudioSource AddHealthSound;
   public HealthUI HealthUI;
-  // public DamageScreen DamageScreen;
-  // public Blink Blink;
 
   public UnityEvent EventOnTakeDamage;
 
