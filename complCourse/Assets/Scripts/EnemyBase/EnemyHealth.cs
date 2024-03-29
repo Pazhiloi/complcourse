@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class EnemyHealth : MonoBehaviour
 {
-  public int Health;
+  public int Health = 1;
 
   public UnityEvent EventOnTakeDamage;
 
