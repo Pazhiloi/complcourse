@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
   public AudioSource AddHealthSound;
   public HealthUI HealthUI;
   public DamageScreen DamageScreen;
+  public Blink Blink;
 
   private void Start() {
     HealthUI.Setup(MaxHealth);
@@ -32,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
       TakeDamageSound.Play();
       HealthUI.DisplayHealth(Health);
       DamageScreen.StartEffect();
+      Blink.StartBlink();
     }
   }
 
