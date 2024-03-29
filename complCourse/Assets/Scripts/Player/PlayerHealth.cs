@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
   public AudioSource TakeDamageSound;
   public AudioSource AddHealthSound;
   public HealthUI HealthUI;
+  public DamageScreen DamageScreen;
 
   private void Start() {
     HealthUI.Setup(MaxHealth);
@@ -30,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
       Invoke("StopInvulnerable", 1f);
       TakeDamageSound.Play();
       HealthUI.DisplayHealth(Health);
+      DamageScreen.StartEffect();
     }
   }
 
