@@ -11,7 +11,7 @@ public class Pointer : MonoBehaviour
   private Ray ray;
   private Plane plane;
 
-  private void Update()
+  private void LateUpdate()
   {
     ray = PlayerCamera.ScreenPointToRay(Input.mousePosition);
 
