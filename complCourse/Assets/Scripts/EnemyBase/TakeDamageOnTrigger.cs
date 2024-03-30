@@ -4,7 +4,7 @@ public class TakeDamageOnTrigger : MonoBehaviour
 {
   public EnemyHealth EnemyHealth;
   public bool DieOnAnyCollision;
-  private void OnTriggerEnter (Collider other)
+  private void OnTriggerEnter(Collider other)
   {
     if (other.attachedRigidbody)
     {
@@ -15,7 +15,10 @@ public class TakeDamageOnTrigger : MonoBehaviour
     }
     if (DieOnAnyCollision)
     {
-      EnemyHealth.TakeDamage(10000);
+      if (other.isTrigger == false)
+      {
+        EnemyHealth.TakeDamage(10000);
+      }
     }
   }
 }
