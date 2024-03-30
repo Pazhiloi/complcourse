@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class TakeDamageOnCollision : MonoBehaviour
+public class TakeDamageOnTrigger : MonoBehaviour
 {
   public EnemyHealth EnemyHealth;
   public bool DieOnAnyCollision;
-  private void OnCollisionEnter(Collision other)
+  private void OnTriggerEnter (Collider other)
   {
-    if (other.rigidbody)
+    if (other.attachedRigidbody)
     {
-      if (other.rigidbody.GetComponent<Bullet>())
+      if (other.attachedRigidbody.GetComponent<Bullet>())
       {
-
         EnemyHealth.TakeDamage(1);
       }
     }
