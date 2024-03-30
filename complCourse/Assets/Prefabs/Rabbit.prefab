@@ -164,8 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c858720a7fee68f40ba910c20d704db4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackPeriod: 7
+  Period: 7
   Animator: {fileID: 3746567928494113071}
+  TriggerName: Attack
 --- !u!114 &4488476969194385690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033e7564518924c45976533d245f4eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CarrotPrefab: {fileID: 1133120213935016466, guid: ccc82e1776f25a84d9ba811a45769a8d, type: 3}
+  Prefab: {fileID: 1133120213935016466, guid: ccc82e1776f25a84d9ba811a45769a8d, type: 3}
   Spawn: {fileID: 8407310129821473295}
 --- !u!23 &8248955711129332112 stripped
 MeshRenderer:
