@@ -7,7 +7,7 @@ public class BatchPrefabCreator : MonoBehaviour
 
    [ContextMenu("Create")]
 
-   void Create(){
+   public void Create(){
     for (int i = 0; i < Spawns.Length; i++)
     {
       Instantiate(Prefab, Spawns[i].position, Spawns[i].rotation);
