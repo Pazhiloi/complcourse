@@ -340,6 +340,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageImage: {fileID: 43707108}
+--- !u!1 &99514685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 99514686}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &99514686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99514685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.268, z: 0.748}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 146212172}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113728441
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,11 +632,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 519dd810ccfc28e4286a91330ee3f3f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 99514686}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 519dd810ccfc28e4286a91330ee3f3f1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 146212174}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 519dd810ccfc28e4286a91330ee3f3f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 146212175}
   m_SourcePrefab: {fileID: 100100000, guid: 519dd810ccfc28e4286a91330ee3f3f1, type: 3}
 --- !u!4 &146212172 stripped
 Transform:
@@ -638,6 +675,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &146212175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146212173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033e7564518924c45976533d245f4eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarrotPrefab: {fileID: 1133120213935016466, guid: ccc82e1776f25a84d9ba811a45769a8d, type: 3}
+  Spawn: {fileID: 99514686}
 --- !u!1 &192543876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,6 +2000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298327854}
+  - component: {fileID: 1298327855}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -1972,6 +2024,20 @@ Transform:
   - {fileID: 146212172}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1298327855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298327853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c858720a7fee68f40ba910c20d704db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackPeriod: 7
+  Animator: {fileID: 146212174}
 --- !u!1001 &1397523205
 PrefabInstance:
   m_ObjectHideFlags: 0
