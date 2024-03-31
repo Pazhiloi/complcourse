@@ -33,7 +33,13 @@ public class Automat : Gun
 
   void UpdateText(){
     BulletsText.text = "Bullets: " + NumberOfBullets.ToString();
+  }
 
+  public override  void AddBullets(int numberOfBullets){
+    base.AddBullets(numberOfBullets);
+    NumberOfBullets += numberOfBullets;
+    UpdateText();
+    PlayerArmory.TakeGunByIndex(1);
   }
 
 }

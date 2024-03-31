@@ -43,4 +43,9 @@ public class Gun : MonoBehaviour
   public virtual void Deactivate(){
     gameObject.SetActive(false);
   }
+
+  public virtual void AddBullets(int numberOfBullets)
+  {
+
+  }
 }
