@@ -1279,14 +1279,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 485330986}
-  - component: {fileID: 485330987}
+  - component: {fileID: 485330988}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &485330986
 Transform:
   m_ObjectHideFlags: 0
@@ -1304,7 +1304,7 @@ Transform:
   - {fileID: 358491376}
   m_Father: {fileID: 602959245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &485330987
+--- !u!114 &485330988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 485330985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f08e870209dce84984988a834826384, type: 3}
+  m_Script: {fileID: 11500000, guid: 220ca2a8ffc10ec4d931db9d1ce500d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 6739998459268342875, guid: a60ccd452206dec4f8210b69924c7ac9, type: 3}
@@ -2699,7 +2699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1766931471}
-  - component: {fileID: 1766931472}
+  - component: {fileID: 1766931473}
   m_Layer: 0
   m_Name: Automat
   m_TagString: Untagged
@@ -2725,7 +2725,7 @@ Transform:
   - {fileID: 139910523}
   m_Father: {fileID: 602959245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1766931472
+--- !u!114 &1766931473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2734,7 +2734,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1766931470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f08e870209dce84984988a834826384, type: 3}
+  m_Script: {fileID: 11500000, guid: 633954522e81ee24c98882df0623b936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 6739998459268342875, guid: a60ccd452206dec4f8210b69924c7ac9, type: 3}
@@ -3058,8 +3058,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Guns:
-  - {fileID: 485330987}
-  - {fileID: 1766931472}
+  - {fileID: 485330988}
+  - {fileID: 1766931473}
   CurrentGunIndex: 1
 --- !u!1001 &1975411462
 PrefabInstance:
