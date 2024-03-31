@@ -1,13 +1,16 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class ActivateByDistance : MonoBehaviour
 {
   public float DistanceToActivate = 20f;
-  private bool _isActive = true; 
+  private bool _isActive = true;
   private Activator _activator;
 
-  private void Start(){
+  private void Start()
+  {
     _activator = FindObjectOfType<Activator>();
     _activator.ObjectsToActivate.Add(this);
   }
@@ -45,12 +48,16 @@ public class ActivateByDistance : MonoBehaviour
     gameObject.SetActive(false);
   }
 
-  private void OnDestroy() {
+  private void OnDestroy()
+  {
     _activator.ObjectsToActivate.Remove(this);
   }
 
-  private void OnDrawGizmosSelected() {
+#if UNITY_EDITOR
+  private void OnDrawGizmosSelected()
+  {
     Handles.color = Color.grey;
     Handles.DrawWireDisc(transform.position, Vector3.forward, DistanceToActivate);
   }
+#endif
 }
