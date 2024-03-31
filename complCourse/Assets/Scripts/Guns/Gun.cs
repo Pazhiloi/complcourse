@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour
     }
   }
 
-  private void Shot(){
+  public virtual void Shot(){
     GameObject newBullet = Instantiate(BulletPrefab, Spawn.position, Spawn.rotation);
     newBullet.GetComponent<Rigidbody>().velocity = Spawn.forward * BulletSpeed;
     ShotSound.Play();
@@ -37,10 +37,10 @@ public class Gun : MonoBehaviour
     Flash.SetActive(false);
   }
 
-  public void Activate(){
+  public virtual void Activate(){
     gameObject.SetActive(true);
   }
-  public void Deactivate(){
+  public virtual void Deactivate(){
     gameObject.SetActive(false);
   }
 }

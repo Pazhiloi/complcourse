@@ -4,6 +4,36 @@ using UnityEngine.UI;
 public class Automat : Gun
 {
   [Header("Automat")]
-    public int NumberOfBullets;
-    public Text BulletsText;
+  public int NumberOfBullets;
+  public Text BulletsText;
+  public PlayerArmory PlayerArmory;
+
+
+  public override void Shot()
+  {
+    base.Shot();
+    NumberOfBullets -= 1;
+    UpdateText();
+    if (NumberOfBullets == 0)
+    {
+      PlayerArmory.TakeGunByIndex(0);
+    }
+  }
+  public override void Activate()
+  {
+    base.Activate();
+    BulletsText.enabled = true;
+    UpdateText();
+  }
+  public override void Deactivate()
+  {
+    base.Deactivate();
+    BulletsText.enabled = false;
+  }
+
+  void UpdateText(){
+    BulletsText.text = "Bullets: " + NumberOfBullets.ToString();
+
+  }
+
 }
