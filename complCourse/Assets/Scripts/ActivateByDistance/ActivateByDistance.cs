@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class ActivateByDistance : MonoBehaviour
@@ -46,5 +47,10 @@ public class ActivateByDistance : MonoBehaviour
 
   private void OnDestroy() {
     _activator.ObjectsToActivate.Remove(this);
+  }
+
+  private void OnDrawGizmosSelected() {
+    Handles.color = Color.grey;
+    Handles.DrawWireDisc(transform.position, Vector3.forward, DistanceToActivate);
   }
 }

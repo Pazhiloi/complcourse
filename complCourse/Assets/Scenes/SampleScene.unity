@@ -1586,6 +1586,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1786497885}
     m_Modifications:
+    - target: {fileID: -8708462143712487051, guid: ae7a605bcc3966244a809081b011698c, type: 3}
+      propertyPath: DistanceToActivate
+      value: 14.43
+      objectReference: {fileID: 0}
     - target: {fileID: 3367954497422697480, guid: ae7a605bcc3966244a809081b011698c, type: 3}
       propertyPath: m_Name
       value: Rabbit
