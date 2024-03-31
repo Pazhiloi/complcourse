@@ -20,4 +20,8 @@ public float TimeScale = 0.2f;
     }
     Time.fixedDeltaTime = _startFixedDeltaTime * Time.timeScale;
   }
+
+  private void OnDestroy() {
+    Time.fixedDeltaTime = _startFixedDeltaTime;
+  }
 }
