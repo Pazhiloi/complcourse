@@ -6,12 +6,14 @@ public class Drive : MonoBehaviour
   public GameObject[] Wheels;
   public float torque = 200;
   public float maxSteerAngle = 30;
+  public float maxBrakeTorque = 500;
 
 
-  private void Go(float accel, float steer)
+  private void Go(float accel, float steer, float brake)
   {
     accel = Mathf.Clamp(accel, -1, 1);
     steer = Mathf.Clamp(steer, -1, 1) * maxSteerAngle;
+    brake = Mathf.Clamp(brake, 0, 1) * maxBrakeTorque;
     float thrustTorque = torque * accel;
 
     for (int i = 0; i < 4; i++)
@@ -20,6 +22,8 @@ public class Drive : MonoBehaviour
       if (i < 2)
       {
         WCs[i].steerAngle = steer;
+      }else{
+        WCs[i].brakeTorque = brake;
       }
 
       Quaternion quat;
@@ -35,6 +39,7 @@ public class Drive : MonoBehaviour
   {
     float a = Input.GetAxis("Vertical");
     float s = Input.GetAxis("Horizontal");
-    Go(a, s);
+    float b = Input.GetAxis("Jump");
+    Go(a, s, b);
   }
 }
