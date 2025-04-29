@@ -6,9 +6,6 @@ namespace MR
 {
     public class CannonMovement : Movement
     {
-    
-
-
     protected override void Awake() {
       base.Awake();
     }

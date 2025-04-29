@@ -4,11 +4,8 @@ using UnityEngine;
 
 namespace MR
 {
-    public class BoatRotation : Rotation
+    public class FindBoardObject : MonoBehaviour
     {
-    protected override void Update()
-    {
-      base.Update();
+        public BoardSideType boardSideType;
     }
-  }
 }

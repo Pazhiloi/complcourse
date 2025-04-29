@@ -4,18 +4,14 @@ using UnityEngine;
 
 namespace MR
 {
-    public class BoatMovement : MonoBehaviour
+    public class BoatMovement : Movement
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+      protected override void Awake() {
+        base.Awake();
+      }
+    protected override void Update()
+    {
+      base.Update();
     }
+  }
 }

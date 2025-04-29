@@ -7,16 +7,20 @@ namespace MR
     public class CannonCamera : MonoBehaviour
     {
     public Transform turretTransform; // Посилання на Transform гармати
+    public Vector3 positionOffset = Vector3.zero; // Зміщення позиції камери відносно гармати
+    public Vector3 rotationOffset = Vector3.zero; // Зміщення повороту камери відносно гармати
 
     void LateUpdate()
     {
       if (turretTransform != null)
       {
-        // Встановлюємо позицію камери в позицію гармати
-        transform.position = turretTransform.position;
+        // Розраховуємо цільову позицію камери
+        Vector3 targetPosition = turretTransform.position + turretTransform.rotation * positionOffset;
+        transform.position = targetPosition;
 
-        // Встановлюємо поворот камери в поворот гармати
-        transform.rotation = turretTransform.rotation;
+        // Розраховуємо цільоний поворот камери
+        Quaternion targetRotation = turretTransform.rotation * Quaternion.Euler(rotationOffset);
+        transform.rotation = targetRotation;
       }
       else
       {

@@ -9,6 +9,7 @@ namespace MR
     {
     
     public GameObject cannonBall;
+    public bool isSelf = false;
 
     
     public Transform muzzle;
@@ -31,7 +32,7 @@ namespace MR
       HandleAiming();
     }
 
-    private void HandleShooting()
+    public void HandleShooting()
     {
       GameObject ball = Instantiate(cannonBall);
       ball.transform.position = muzzle.position;
@@ -44,6 +45,7 @@ namespace MR
     }
 
     private void HandleAiming(){
+      if (isSelf){
       if (Input.GetMouseButtonDown(1))
       {
         isAiming = !isAiming;
@@ -59,6 +61,7 @@ namespace MR
       if (isAiming && Input.GetKeyDown(KeyCode.Space) && !isWaiting)
       {
         HandleShooting();
+      }
       }
     }
 

@@ -14,11 +14,17 @@ namespace MR
 
    protected virtual void Update()
     {
+      HorizontalRotation();
+      VerticalRotation();
+    }
+
+    protected virtual void HorizontalRotation (){
       // Горизонтальний поворот (навколо осі Y)
       float mouseXInput = Input.GetAxis("Mouse X");
       float horizontalRotationAmount = mouseXInput * horizontalRotationSpeed;
       horizontalBase.Rotate(Vector3.up * horizontalRotationAmount);
-
+    }
+    protected virtual void VerticalRotation (){
       // Вертикальний нахил (навколо локальної осі X cannonPivot)
       float mouseYInput = Input.GetAxis("Mouse Y");
       float verticalRotationAmount = -mouseYInput * verticalRotationSpeed; // Інвертуємо для інтуїтивного керування
@@ -30,5 +36,6 @@ namespace MR
       // Застосовуємо поворот до точки повороту гармати
       verticalPivot.localEulerAngles = new Vector3(currentVerticalAngle, 0f, 0f);
     }
+
   }
 }
