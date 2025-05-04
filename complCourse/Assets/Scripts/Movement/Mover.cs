@@ -1,46 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
-public class Mover : MonoBehaviour
+namespace RPG.Movement
 {
-  [SerializeField] private Transform target;
-  private NavMeshAgent agent;
-  private Animator animator;
 
-  private void Awake()
+  public class Mover : MonoBehaviour
   {
-    agent = GetComponent<NavMeshAgent>();
-    animator = GetComponent<Animator>();
-  }
-  
-  void Update()
-  {
-    if (Input.GetMouseButton(0))
+    [SerializeField] private Transform target;
+    private NavMeshAgent agent;
+    private Animator animator;
+
+    private void Awake()
     {
-      MoveToCursor();
+      agent = GetComponent<NavMeshAgent>();
+      animator = GetComponent<Animator>();
     }
-    UpdateAnimator();
-  }
 
-  private void MoveToCursor(){
-    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    RaycastHit hit;
-    bool hasHit = Physics.Raycast(ray, out hit);
-
-    if (hasHit)
+    void Update()
     {
-      agent.SetDestination(hit.point);
+      UpdateAnimator();
     }
-  }
 
-  private void UpdateAnimator(){
-    Vector3 velocity  = agent.velocity;
-    Vector3 localVelocity  = transform.InverseTransformDirection(velocity);
-    float speed = localVelocity.z;
-    animator.SetFloat("forwardSpeed", speed);
-  }
+    public void MoveTo(Vector3 destination)
+    {
+      agent.isStopped = false;
+      agent.SetDestination(destination);
+    }
 
-  
+    public void Stop()
+    {
+      agent.isStopped = true;
+    }
+
+    private void UpdateAnimator()
+    {
+      Vector3 velocity = agent.velocity;
+      Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+      float speed = localVelocity.z;
+      animator.SetFloat("forwardSpeed", speed);
+    }
+
+  }
 }
