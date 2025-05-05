@@ -1,23 +1,33 @@
+using Rpg.Core;
+using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
 namespace RPG.Movement
 {
 
-  public class Mover : MonoBehaviour
+  public class Mover : MonoBehaviour, IAction
   {
     [SerializeField] private Transform target;
     private NavMeshAgent agent;
     private Animator animator;
+    ActionScheduler actionScheduler;
 
     private void Awake()
     {
       agent = GetComponent<NavMeshAgent>();
       animator = GetComponent<Animator>();
+      actionScheduler = GetComponent<ActionScheduler>();
     }
 
     void Update()
     {
       UpdateAnimator();
+    }
+
+    public void StartMoveAction(Vector3 destination)
+    {
+      actionScheduler.StartAction(this);
+      MoveTo(destination);
     }
 
     public void MoveTo(Vector3 destination)
@@ -26,10 +36,13 @@ namespace RPG.Movement
       agent.SetDestination(destination);
     }
 
-    public void Stop()
+    public void Cancel()
     {
       agent.isStopped = true;
     }
+   
+
+
 
     private void UpdateAnimator()
     {
