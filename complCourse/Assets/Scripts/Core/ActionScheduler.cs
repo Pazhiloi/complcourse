@@ -1,7 +1,6 @@
-using RPG.Core;
 using UnityEngine;
 
-namespace Rpg.Core
+namespace RPG.Core
 {
   public class ActionScheduler : MonoBehaviour
   {
@@ -16,6 +15,10 @@ namespace Rpg.Core
         currentAction.Cancel();
       }
       currentAction = action;
+    }
+
+    public void CancelCurrentAction(){
+      StartAction(null);
     }
   }
 }

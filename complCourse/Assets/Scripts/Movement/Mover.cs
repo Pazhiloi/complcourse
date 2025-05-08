@@ -1,4 +1,3 @@
-using Rpg.Core;
 using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
@@ -10,6 +9,7 @@ namespace RPG.Movement
     [SerializeField] private Transform target;
     private NavMeshAgent agent;
     private Animator animator;
+    private Health health;
     ActionScheduler actionScheduler;
 
     private void Awake()
@@ -17,10 +17,12 @@ namespace RPG.Movement
       agent = GetComponent<NavMeshAgent>();
       animator = GetComponent<Animator>();
       actionScheduler = GetComponent<ActionScheduler>();
+      health = GetComponent<Health>();
     }
 
     void Update()
     {
+      agent.enabled = !health.IsDead();
       UpdateAnimator();
     }
 

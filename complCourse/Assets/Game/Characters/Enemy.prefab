@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8055982347862046279, guid: d4f9486852aab744ab4bda6d59064689, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -192,3 +196,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd289e58d9b912641965caf7906f8651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseDistance: 5
+  suspicionTime: 5

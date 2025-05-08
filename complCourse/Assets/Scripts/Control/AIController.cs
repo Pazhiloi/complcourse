@@ -1,24 +1,78 @@
-using System.Collections;
-using System.Collections.Generic;
+using RPG.Combat;
+using RPG.Core;
+using RPG.Movement;
 using UnityEngine;
 namespace RPG.Control
 {
   public class AIController : MonoBehaviour
   {
     [SerializeField] float chaseDistance = 5f;
+    [SerializeField] float suspicionTime = 3f;
+
+    Fighter fighter;
+    Health health;
+    Mover mover;
+    ActionScheduler actionScheduler;
+    GameObject player;
+    Vector3 guardPosition;
+    float timeSinceLastSawPlayer  = Mathf.Infinity;
+
+    private void Start()
+    {
+      health = GetComponent<Health>();
+      fighter = GetComponent<Fighter>();
+      player = GameObject.FindWithTag("Player");
+      mover = GetComponent<Mover>();
+      actionScheduler = GetComponent<ActionScheduler>();
+      guardPosition = transform.position;
+    }
 
     private void Update()
     {
-      if (DistanceToPlayer() < chaseDistance)
+      if (health.IsDead()) return;
+     
+      if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
       {
-        Debug.Log("Should chase");
+        timeSinceLastSawPlayer = 0;
+        AttackBehaviour();
       }
+      else if (timeSinceLastSawPlayer < suspicionTime)
+      {
+        SuspicionBehaviour();
+      }
+      else
+      {
+        GuardBehaviour();
+      }
+
+      timeSinceLastSawPlayer += Time.deltaTime;
     }
 
-    private float DistanceToPlayer()
+    private void GuardBehaviour()
     {
-      GameObject player = GameObject.FindWithTag("Player");
-      return Vector3.Distance(player.transform.position, transform.position);
+      mover.StartMoveAction(guardPosition);
+    }
+
+    private void SuspicionBehaviour()
+    {
+      actionScheduler.CancelCurrentAction();
+    }
+
+    private void AttackBehaviour()
+    {
+      fighter.Attack(player);
+    }
+
+    private bool InAttackRangeOfPlayer()
+    {
+      float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+      return distanceToPlayer < chaseDistance;
+    }
+
+    private void OnDrawGizmosSelected() {
+      Gizmos.color = Color.blue;
+      Gizmos.DrawWireSphere(transform.position, chaseDistance);
     }
   }
 }
+ 
